@@ -1,0 +1,107 @@
+format = """
+[](#00a3cc)\
+[󰣇 ](bg:#00a3cc fg:#0f111b)\
+[ ](bg:#0f111b fg:#00a3cc)\
+
+[](#5ccc96)\
+$username\
+[](bg:#212736 fg:#5ccc96)\
+
+[ ](#30365f)\
+$directory\
+[](fg:#30365f bg:#30365f)\
+$git_branch\
+$git_status\
+[](fg:#30365f bg:#0f111b)\
+$dotnet\
+$c\
+
+$fill\
+[](#30365f)\
+$time\
+[ ](fg:#30365f)\
+
+\n$character"""
+
+[fill]
+symbol = " "
+
+[username]
+style_user='bold fg:#30365F bg:#5ccc96'
+style_root = 'bg:#00a3cc'
+format = '[$user]($style)'
+disabled = false
+show_always = true
+
+[directory]
+style = "bold fg:#ffffff bg:#30366f"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#f2ce00"
+# style = "bg:#394260"
+# fg:769ff0
+format = '[[ $symbol $branch ](fg:#f2ce00 bg:#394260)]($style)'
+
+[git_status]
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[c]
+symbol = ""
+style = "bg:#212736"
+commands = [ [ 'gcc', '--version' ], [ 'clang', '--version' ] ]
+format = '[ $symbol ($name)]($style)'
+
+[lua]
+#symbol = '🌙 '
+symbol = ' 󰢱 ' 
+style = "bg:#212736"
+format = '[$symbol($version )]($style)'
+
+[dotnet]
+symbol= '.NET '
+style = "bg:# bold fg:#ffcf4d"
+heuristic = true
+format = ' [$symbol(🎯 $tfm )]($style)'
+detect_extensions = ['csproj','cs']
+
+
+
+[time]
+disabled = false
+use_12hr = true
+time_format = "%l:%M:%S %P" # Hour:Minute Format
+style = "bg:#39365f"
+format = '[[  ($time)](fg:#cca35c bg:#30365f)]($style)'
+
+
